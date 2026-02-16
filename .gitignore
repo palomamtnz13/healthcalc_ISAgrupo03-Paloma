@@ -24,3 +24,16 @@ hs_err_pid*
 replay_pid*
 
 */target/
+
+# Ignorar archivos de configuración de Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# Ignorar archivos de IntelliJ
+.idea/
+*.iml
+
+# Ignorar archivos de VS Code
+.vscode/

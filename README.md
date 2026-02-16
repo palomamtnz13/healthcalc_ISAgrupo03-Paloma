@@ -20,8 +20,14 @@ El [Hospital Universitario Virgen de la Victoria (El Clínico)](https://www.sspa
 Para que el proyecto cumpla con estándares de software médico, se deben incluir:
 - **Gestión de Errores:** Manejo de excepciones en divisiones por cero (ej. altura 0 en IMC).
   1.  **Validación de Rangos (_Data Scrubbing_):**
-      * *Hard Limits:* Bloquear entradas imposibles (ej. altura de 3 metros).
+      * *Hard Limits:* Bloquear entradas imposibles (ej. altura de 4 metros).
       * *Soft Limits:* Avisos ante valores inusuales pero posibles.
+    
+        > **Límites Biológicos Reales**:
+            * **Altura:** El ser humano más alto registrado midió aproximadamente 272 cm. Un límite de 300 cm es un "Hard Limit" sensato.
+            Un recién nacido puede medir 40cm. Un límite inferior sensato es de 30cm.
+            * **Peso:** El peso máximo registrado ronda los 635 kg. Un límite de 700 kg sería el tope lógico.
+            Un recién nacido puede pesar 2kg. Un límite inferior sensato es de 1kg.
   2.  **Soporte Multi-unidad:** Conversión automática entre sistema métrico (kg, cm) e imperial (lb, ft/in).
   3.  **Gestión de Errores:** Manejo de excepciones en divisiones por cero (ej. altura 0 en IMC).
 - Todo el código de la aplicación (incluido los comentarios) deben estar en inglés.
@@ -215,5 +221,33 @@ Estas métricas requieren datos de signos vitales o resultados de laboratorio.
       6. Nivel de conciencia (Escala ACVPU).
       7. Temperatura.
     * **Lógica de Software:** El sistema suma puntos (0 a 3) por cada parámetro que se desvíe de lo normal. Un puntaje de 5 o más es una "Alerta Roja" que requiere respuesta urgente.
+
+</details>
+
+
+## Plan de pruebas
+
+Para garantizar que la calculadora sea fiable y segura, se han definido los siguientes casos de prueba divididos por categorías:
+
+<details>
+<summary><b>Pruebas de Cálculo del Índice de Masa Corporal (IMC)</b></summary>
+
+* **Cálculo correcto:** Se comprueba que, al introducir un peso y altura normales, el resultado sea el esperado matemáticamente.
+* **Protección ante datos imposibles:**
+    * El sistema debe rechazar pesos menores a 1 kg o mayores a 700 kg.
+    * El sistema debe rechazar alturas menores a 30 cm o mayores a 300 cm.
+* **Protección ante errores de escritura:** Se verifica que no se permitan valores negativos o iguales a cero.
+
+</details>
+
+<details>
+<summary><b>Pruebas de Clasificación del Estado de Salud basado en el IMC</b></summary>
+Para cada categoría, probamos valores que están justo en el límite para asegurar que el cambio de etiqueta es exacto:  
+
+* **Peso bajo (Underweight):** Se comprueba con valores por debajo de 18.5.
+* **Peso normal (Normal weight):** Se comprueba con valores desde 18.5 hasta justo antes de 25.
+* **Sobrepeso (Overweight):** Se comprueba con valores desde 25 hasta justo antes de 30.
+* **Obesidad (Obesity):** Se comprueba con valores desde 30 en adelante.
+* **Seguridad:** Se rechazan clasificaciones para resultados de IMC negativos o absurdamente altos (más de 150).
 
 </details>
