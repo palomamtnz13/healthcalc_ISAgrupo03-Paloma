@@ -37,34 +37,34 @@ public class BMITest {
 
         @Test
         @DisplayName("Cálculo de BMI con valores estándar válidos")
-        void testBodyMassIndexValido() throws InvalidHealthDataException {
+        void testBmiValido() throws InvalidHealthDataException {
             double weight = 70.0;
             double height = 1.75;
             double expectedBmi = 70.0 / Math.pow(1.75, 2);
 
-            double result = healthCalc.bodyMassIndex(weight, height);
+            double result = healthCalc.bmi(weight, height);
 
             assertEquals(expectedBmi, result, 0.01);
         }
 
         @Test
         @DisplayName("Lanzar excepción cuando el peso es cero")
-        void testBodyMassIndexPesoCero() {
-            assertThrows(InvalidHealthDataException.class, () -> healthCalc.bodyMassIndex(0, 170));
+        void testBmiPesoCero() {
+            assertThrows(InvalidHealthDataException.class, () -> healthCalc.bmi(0, 170));
         }
 
         @Test
         @DisplayName("Lanzar excepción cuando la altura es cero")
-        void testBodyMassIndexAlturaCero() {
-            assertThrows(InvalidHealthDataException.class, () -> healthCalc.bodyMassIndex(70, 0));
+        void testBmiAlturaCero() {
+            assertThrows(InvalidHealthDataException.class, () -> healthCalc.bmi(70, 0));
         }
 
         @Test
         @DisplayName("Lanzar excepción cuando los valores son negativos")
-        void testBodyMassIndexNegativos() {
+        void testBmiNegativos() {
             assertAll(
-                () -> assertThrows(InvalidHealthDataException.class, () -> healthCalc.bodyMassIndex(-70, 170)),
-                () -> assertThrows(InvalidHealthDataException.class, () -> healthCalc.bodyMassIndex(70, -170))
+                () -> assertThrows(InvalidHealthDataException.class, () -> healthCalc.bmi(-70, 170)),
+                () -> assertThrows(InvalidHealthDataException.class, () -> healthCalc.bmi(70, -170))
             );
         }
 
@@ -74,7 +74,7 @@ public class BMITest {
         void testPesoMinimoImposible(double weight) {
             double height = 170.0;
             
-            assertThrows(InvalidHealthDataException.class, () -> healthCalc.bodyMassIndex(weight, height));
+            assertThrows(InvalidHealthDataException.class, () -> healthCalc.bmi(weight, height));
         }
 
         @ParameterizedTest(name = "Peso máximo inválido: {0} kg")
@@ -83,7 +83,7 @@ public class BMITest {
         void testPesoMaximoImposible(double weight) {
             double height = 170.0;
             
-            assertThrows(InvalidHealthDataException.class, () -> healthCalc.bodyMassIndex(weight, height));
+            assertThrows(InvalidHealthDataException.class, () -> healthCalc.bmi(weight, height));
         }
 
         @ParameterizedTest(name = "Altura mínima inválida: {0} m")
@@ -92,7 +92,7 @@ public class BMITest {
         void testAlturaMinimaImposible(double height) {
             double weight = 70.0;
             
-            assertThrows(InvalidHealthDataException.class, () -> healthCalc.bodyMassIndex(weight, height));
+            assertThrows(InvalidHealthDataException.class, () -> healthCalc.bmi(weight, height));
         }
 
         @ParameterizedTest(name = "Altura máxima inválida: {0} m")
@@ -101,7 +101,7 @@ public class BMITest {
         void testAlturaMaximoImposible(double height) {
             double weight = 70.0;
             
-            assertThrows(InvalidHealthDataException.class, () -> healthCalc.bodyMassIndex(weight, height));
+            assertThrows(InvalidHealthDataException.class, () -> healthCalc.bmi(weight, height));
         }
     }
 

@@ -31,7 +31,7 @@ public class HealthCalcImpl implements HealthCalc {
     }
 
     @Override
-    public double bodyMassIndex(double weight, double height) throws InvalidHealthDataException {
+    public double bmi(double weight, double height) throws InvalidHealthDataException {
         if (weight <= 0) {
             throw new InvalidHealthDataException("Weight must be positive.");
         }

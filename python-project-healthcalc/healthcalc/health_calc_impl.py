@@ -18,7 +18,7 @@ class HealthCalcImpl(HealthCalc):
             result = "Overweight"
         return result
 
-    def body_mass_index(self, weight: float, height: float) -> float:
+    def bmi(self, weight: float, height: float) -> float:
         if weight <= 0:
             raise InvalidHealthDataException("Weight must be positive.")
         if height <= 0:

@@ -16,7 +16,7 @@ class HealthCalc(ABC):
         pass
 
     @abstractmethod
-    def body_mass_index(self, weight: float, height: float) -> float:
+    def bmi(self, weight: float, height: float) -> float:
         """Calculate the Body Mass Index (BMI).
         
         :param weight: Weight (kg)

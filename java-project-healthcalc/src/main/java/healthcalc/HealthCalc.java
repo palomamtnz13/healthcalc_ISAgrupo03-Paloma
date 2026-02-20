@@ -32,5 +32,5 @@ public interface HealthCalc {
 	 * @return	  		The Body Mass Index of the person (kg/m2).
 	 * @throws Exception
 	 */
-	public double bodyMassIndex(double weight, double height) throws InvalidHealthDataException;
+	public double bmi(double weight, double height) throws InvalidHealthDataException;
 }

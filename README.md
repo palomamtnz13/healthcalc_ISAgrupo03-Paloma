@@ -251,3 +251,56 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 * **Seguridad:** Se rechazan clasificaciones para resultados de IMC negativos o absurdamente altos (más de 150).
 
 </details>
+
+
+## Instalación y ejecución
+
+<details>
+<summary><b>Python</b></summary>
+
+### Dependencias
+- Python 3.13+
+- pytest
+- coverage
+- pytest-cov
+
+### Preparación del entorno
+1. Clonar este repositorio: `git clone https://github.com/IngSoftAvanz/healthcalc.git`
+2. Desplazarse a la carpeta del proyecto:
+   `cd healthcalc/python-project-healthcalc`
+3. Crear entorno virtual: `python -m venv env` (esto crea una carpeta `env` para el entorno virtual)
+4. Activar el entorno virtual:
+    - En Windows: `.\env\Scripts\Activate`
+    - En Linux: `. env/bin/activate`
+5. Instalar dependencias: `pip install -r requirements.txt`
+
+### Ejecución
+- Ejecutar la aplicación: `python main.py <número>`
+- Ejecutar los tests: `pytest -v`
+- Ejecutar los tests con informe de cobertura: `pytest -v --cov=factorial --cov-report=html tests/`
+
+</details>
+
+
+<details>
+<summary><b>Java</b></summary>
+
+### Dependencias
+- Java JDK 18+
+- Maven
+- JUnit
+- Jacoco
+  
+### Preparación del entorno
+1. Clonar este repositorio: `git clone https://github.com/IngSoftAvanz/healthcalc.git`
+2. Desplazarse a la carpeta del proyecto:
+   `cd healthcalc/java-project-healthcalc`
+3. Compilar con Maven: `mvn clean compile`
+
+
+### Ejecución
+- Ejecutar la aplicación: Clic en Run usando el IDE.
+- Ejecutar los tests: Clic en Run Tests usando el IDE o con Maven: `mvn test`
+- Ejecutar los tests con informe de cobertura (previamente configurado en pom.xml): `mvn test`
+
+</details>
