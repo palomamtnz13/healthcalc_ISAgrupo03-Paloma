@@ -230,7 +230,7 @@ Estas métricas requieren datos de signos vitales o resultados de laboratorio.
 Para garantizar que la calculadora sea fiable y segura, se han definido los siguientes casos de prueba divididos por categorías:
 
 <details>
-<summary><b>Pruebas de Cálculo del Índice de Masa Corporal (IMC)</b></summary>
+<summary><b>Pruebas de Cálculo del Índice de Masa Corporal (IMC o BMI)</b></summary>
 
 * **Cálculo correcto:** Se comprueba que, al introducir un peso y altura normales, el resultado sea el esperado matemáticamente.
 * **Protección ante datos imposibles:**
@@ -241,7 +241,7 @@ Para garantizar que la calculadora sea fiable y segura, se han definido los sigu
 </details>
 
 <details>
-<summary><b>Pruebas de Clasificación del Estado de Salud basado en el IMC</b></summary>
+<summary><b>Pruebas de Clasificación del Estado de Salud basado en el IMC/BMI</b></summary>
 Para cada categoría, probamos valores que están justo en el límite para asegurar que el cambio de etiqueta es exacto:  
 
 * **Peso bajo (Underweight):** Se comprueba con valores por debajo de 18.5.
